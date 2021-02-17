@@ -52,7 +52,7 @@ def play(type):
 
   cpuChoice = random.choice(options)
   #PlayerInput
-  print("Choose your item: ")
+  print("Rock, Paper or Scissors?: ")
   playerChoice = input()
 
   #Speech
