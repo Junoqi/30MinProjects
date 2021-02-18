@@ -27,7 +27,6 @@ def play():
   wordList = split(word)
   replit.clear()
   print("Word is " + str(len(word)) + " letters long")
-  time.sleep(1)
     
   guesses = 10
   guessedLetters = ""
