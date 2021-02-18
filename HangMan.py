@@ -1,6 +1,7 @@
 #Imports
 import random
 import replit
+import time
 
 #Global Variables
 words = ["Cat", "Bat", "Ace", "Act", "App", "Cap"]
@@ -11,13 +12,22 @@ def start():
   print("Selecting word...")
   print("Word selected.")
   print("")
+  time.sleep(1.5)
   play()
+
+
+def split(word): 
+    return list(word) 
 
 #Game loop
 def play():
-  word = random.choice(words)
-  print("Word: " + "*" * len(word))
+  guessed = []
 
+  word = random.choice(words)
+  wordList = split(word)
+  replit.clear()
+  print("Word is " + str(len(word)) + " letters long")
+    
   guesses = 10
   guessedLetters = ""
   while guesses > 0:
@@ -26,7 +36,26 @@ def play():
     guess = input()
     print("---")
 
+    for char in word.lower():
+      if(char == guess):
+        guessed.append(char.lower())
+      else:
+        pass
+
+    for char in wordList:
+      if(char.lower() in guessed):
+        wordGuess += char
+      else:
+        wordGuess += "*"
+
     if(guess == word.lower()):
+      replit.clear()
+      print("")
+      print("YOU WON!")
+      print(f"The word was: {word}")
+      playAgain()
+
+    if("*" not in wordGuess):
       replit.clear()
       print("")
       print("YOU WON!")
@@ -38,13 +67,14 @@ def play():
       print("")
       continue
 
-    for char in word.lower():
-      if(char == guess):
-        wordGuess += char
-      else:
-        wordGuess += "*"
+    elif(len(guess) > 1):
+      print("Guess can't be larger than 1")
+      print("")
+      continue
+
 
     print("Word: " + wordGuess)
+    
 
     guesses += -1
 
