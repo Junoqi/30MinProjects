@@ -5,7 +5,7 @@ import time
 import sys
 
 #Global Variables
-words = ['rainbow', 'computer', 'science', 'programming', 'python', 'mathematics', 'player', 'condition', 'reverse', 'water', 'board', 'geeks'] 
+words = ['rainbow', 'computer', 'science', 'programming', 'python', 'mathematics', 'player', 'condition', 'reverse', 'water', 'board', 'geeks' ] 
 animation = words
 
 
@@ -16,7 +16,6 @@ def start():
   print("Welcome to HANGMAN!")
   for i in range(30):
     time.sleep(0.1)
-    x = i % 4
     sys.stdout.write("\rSelecting word: " + animation[i % len(animation)])
     #do something
   print("\nWord selected.")
@@ -30,14 +29,15 @@ def split(word):
 #Game loop
 def play():
   guessed = []
-
   word = random.choice(words)
   wordList = split(word)
   replit.clear()
+
   print("Word is " + str(len(word)) + " letters long")
-    
-  guesses = 10
+
+  guesses = len(word) + 5
   guessedLetters = ""
+
   while guesses > 0:
     print("Guess!")
     wordGuess = ""
@@ -90,11 +90,29 @@ def play():
     print("")
 
   if(guesses == 0):
-    replit.clear()
-    print("")
-    print("YOU LOST!")
-    playAgain()
-    
+    print("Last chance!")
+    print("Guess the word: ") 
+    finalGuess = input()
+    if(finalGuess == word):
+      win()
+    else:
+      lose()
+
+#Win function
+def win():
+  replit.clear()
+  print("")
+  print("YOU WON!")
+  playAgain()
+
+#Lose function
+def lose():
+  replit.clear()
+  print("")
+  print("YOU LOST!")
+  playAgain()
+
+
 #Play again loop
 def playAgain():
   print("Play again? (Y/N)")
