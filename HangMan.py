@@ -2,16 +2,24 @@
 import random
 import replit
 import time
+import sys
 
 #Global Variables
-words = ["Cat", "Bat", "Ace", "Act", "App", "Cap"]
+words = ['rainbow', 'computer', 'science', 'programming', 'python', 'mathematics', 'player', 'condition', 'reverse', 'water', 'board', 'geeks'] 
+animation = words
+
+
+
 
 #Speech
 def start():
   print("Welcome to HANGMAN!")
-  print("Selecting word...")
-  print("Word selected.")
-  print("")
+  for i in range(30):
+    time.sleep(0.1)
+    x = i % 4
+    sys.stdout.write("\rSelecting word: " + animation[i % len(animation)])
+    #do something
+  print("\nWord selected.")
   time.sleep(1.5)
   play()
 
