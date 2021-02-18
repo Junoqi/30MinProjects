@@ -32,7 +32,6 @@ def play():
   guesses = 10
   guessedLetters = ""
   while guesses > 0:
-    replit.clear()
     print("Guess!")
     wordGuess = ""
     guess = input()
