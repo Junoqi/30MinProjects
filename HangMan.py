@@ -27,10 +27,12 @@ def play():
   wordList = split(word)
   replit.clear()
   print("Word is " + str(len(word)) + " letters long")
+  time.sleep(1)
     
   guesses = 10
   guessedLetters = ""
   while guesses > 0:
+    replit.clear()
     print("Guess!")
     wordGuess = ""
     guess = input()
@@ -47,13 +49,6 @@ def play():
         wordGuess += char
       else:
         wordGuess += "*"
-
-    if(guess == word.lower()):
-      replit.clear()
-      print("")
-      print("YOU WON!")
-      print(f"The word was: {word}")
-      playAgain()
 
     if("*" not in wordGuess):
       replit.clear()
