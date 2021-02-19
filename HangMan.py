@@ -8,9 +8,6 @@ import sys
 words = ['rainbow', 'computer', 'science', 'programming', 'python', 'mathematics', 'player', 'condition', 'reverse', 'water', 'board', 'geeks' ] 
 animation = words
 
-
-
-
 #Speech
 def start():
   print("Welcome to HANGMAN!")
@@ -21,7 +18,6 @@ def start():
   print("\nWord selected.")
   time.sleep(1.5)
   play()
-
 
 def split(word): 
     return list(word) 
@@ -73,10 +69,8 @@ def play():
       print("")
       continue
 
-
     print("Word: " + wordGuess)
     
-
     guesses += -1
 
     if(guess in guessedLetters):
@@ -111,7 +105,6 @@ def lose():
   print("")
   print("YOU LOST!")
   playAgain()
-
 
 #Play again loop
 def playAgain():
