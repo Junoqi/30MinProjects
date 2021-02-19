@@ -3,10 +3,16 @@ import random
 import replit
 import time
 import sys
+import os
 
 #Global Variables
 words = ['rainbow', 'computer', 'science', 'programming', 'python', 'mathematics', 'player', 'condition', 'reverse', 'water', 'board', 'geeks' ] 
 animation = words
+
+
+#Clear function
+def cls():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 #Speech
 def start():
@@ -27,7 +33,10 @@ def play():
   guessed = []
   word = random.choice(words)
   wordList = split(word)
-  replit.clear()
+  try:
+      replit.clear()
+  except:
+      cls()
 
   print("Word is " + str(len(word)) + " letters long")
 
@@ -53,7 +62,10 @@ def play():
         wordGuess += "*"
 
     if("*" not in wordGuess):
-      replit.clear()
+      try:
+          replit.clear()
+      except:
+          cls()
       print("")
       print("YOU WON!")
       print(f"The word was: {word}")
@@ -94,14 +106,20 @@ def play():
 
 #Win function
 def win():
-  replit.clear()
+  try:
+      replit.clear()
+  except:
+      cls()
   print("")
   print("YOU WON!")
   playAgain()
 
 #Lose function
 def lose():
-  replit.clear()
+  try:
+      replit.clear()
+  except:
+      cls()
   print("")
   print("YOU LOST!")
   playAgain()
