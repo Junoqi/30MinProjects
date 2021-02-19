@@ -20,6 +20,7 @@ def start():
   for i in range(30):
     time.sleep(0.1)
     sys.stdout.write("\rSelecting word: " + animation[i % len(animation)])
+    sys.stdout.flush()
     #do something
   print("\nWord selected.")
   time.sleep(1.5)
